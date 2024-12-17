@@ -1,3 +1,6 @@
-   local VoiceChatService = game:GetService("VoiceChatService")
+print("hellothere");
+
+
+local VoiceChatService = game:GetService("VoiceChatService")
     VoiceChatService:joinVoice()
 end)

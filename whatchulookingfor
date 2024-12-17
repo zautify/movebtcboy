@@ -1,4 +1,3 @@
-
 local VoiceChatService = game:GetService("VoiceChatService")
-    VoiceChatService:joinVoice()
-end)
+
+VoiceChatService:JoinVoice()

@@ -1,3 +1,9 @@
    local VoiceChatService = game:GetService("VoiceChatService")
     VoiceChatService:joinVoice()
 end)
+
+
+
+
+
+print("bitch")

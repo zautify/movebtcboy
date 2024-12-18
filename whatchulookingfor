@@ -18,7 +18,7 @@ frame.Parent = screenGui
 local textLabel = Instance.new("TextLabel")
 textLabel.Size = UDim2.new(1, 0, 1, 0)
 textLabel.Position = UDim2.new(0, 0, 0, 0)
-textLabel.Text = "You thought"
+textLabel.Text = "You thought bitch nigga"
 textLabel.Font = Enum.Font.GothamBold
 textLabel.TextScaled = true
 textLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -28,8 +28,8 @@ textLabel.Parent = frame
 -- Add the sound
 local sound = Instance.new("Sound")
 sound.SoundId = "rbxassetid://602163388"
-sound.Volume = 1
-sound.Looped = false
+sound.Volume = 1 -- Set the volume to the maximum allowed value
+sound.Looped = true -- Enable looping
 sound.Parent = screenGui
 
 -- Play the sound

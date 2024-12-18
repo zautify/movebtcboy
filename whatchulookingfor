@@ -4,6 +4,7 @@ local playerGui = player:FindFirstChildOfClass("PlayerGui")
 -- Create a ScreenGui to hold the elements
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "FullScreenWhiteGui"
+screenGui.ResetOnSpawn = false -- Prevent GUI from disappearing on reset
 screenGui.Parent = playerGui
 
 -- Create a Frame to cover the entire screen
@@ -17,9 +18,19 @@ frame.Parent = screenGui
 local textLabel = Instance.new("TextLabel")
 textLabel.Size = UDim2.new(1, 0, 1, 0)
 textLabel.Position = UDim2.new(0, 0, 0, 0)
-textLabel.Text = "You thought bitch nigga"
+textLabel.Text = "You thought"
 textLabel.Font = Enum.Font.GothamBold
 textLabel.TextScaled = true
 textLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 textLabel.BackgroundTransparency = 1
 textLabel.Parent = frame
+
+-- Add the sound
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://602163388"
+sound.Volume = 1
+sound.Looped = false
+sound.Parent = screenGui
+
+-- Play the sound
+sound:Play()

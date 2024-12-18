@@ -1,34 +1,25 @@
-      local player = game.Players.LocalPlayer
-      local screenGui = Instance.new("ScreenGui")
-      screenGui.ResetOnSpawn = false
-      screenGui.Parent = player:WaitForChild("PlayerGui")
+local player = game.Players.LocalPlayer
+local playerGui = player:FindFirstChildOfClass("PlayerGui")
 
-      local button = Instance.new("TextButton")
-      button.Size = UDim2.new(0, 200, 0, 50)
-      button.Position = UDim2.new(0.9, -100, 0, 0)
-      button.Text = "VC BYPASS"
-      button.Font = Enum.Font.GothamBold
-      button.TextScaled = true
-      button.TextColor3 = Color3.fromRGB(255, 255, 255)
-      button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-      button.BorderSizePixel = 2
-      button.BorderColor3 = Color3.fromRGB(255, 255, 255)
+-- Create a ScreenGui to hold the elements
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "FullScreenWhiteGui"
+screenGui.Parent = playerGui
 
-      local UICorner = Instance.new("UICorner")
-      UICorner.CornerRadius = UDim.new(0, 10)
-      UICorner.Parent = button
+-- Create a Frame to cover the entire screen
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(1, 0, 1, 0)
+frame.Position = UDim2.new(0, 0, 0, 0)
+frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+frame.Parent = screenGui
 
-      button.Parent = screenGui
-
-      button.MouseEnter:Connect(function()
-          button.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-      end)
-
-      button.MouseLeave:Connect(function()
-          button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-      end)
-
-button.MouseButton1Click:Connect(function()
-    local VoiceChatService = game:GetService("VoiceChatService")
-    VoiceChatService:joinVoice()
-end)
+-- Create a TextLabel to display the message
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.new(1, 0, 1, 0)
+textLabel.Position = UDim2.new(0, 0, 0, 0)
+textLabel.Text = "You thought bitch nigga"
+textLabel.Font = Enum.Font.GothamBold
+textLabel.TextScaled = true
+textLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.Parent = frame
